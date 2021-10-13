@@ -1,6 +1,5 @@
 <template>
-    <select 
-        :bike="bike"
+    <select
         v-model="selected">
         <option
             v-for="stat in statuses"
@@ -14,7 +13,10 @@
 export default {
     name: "Selector",
     props: {
-        bike: Object,
+        bike: {
+            type: Object,
+            required: true
+        },
     },
     data(){
         return{

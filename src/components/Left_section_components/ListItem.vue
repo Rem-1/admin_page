@@ -26,7 +26,10 @@ export default {
         Selector,
     },
     props:{
-        bike: Object,
+        bike: {
+            type: Object,
+            required: true
+        },
     },
     methods:{
         ...mapActions(['deleteBike', 'getList']),
