@@ -5,12 +5,12 @@
         <div class="stable">STATUS: 
             <Selector
                 :bike="bike"
-                v-on:change="changeStatus($event.target.value, bike._id)"
+                @change="changeStatus($event.target.value, bike._id)"
             />
         </div>
     </div>
     <div class="left-one target">
-        <button v-on:click="deleteBike(bike._id)">x</button>
+        <button @click="deleteBike(bike._id)">x</button>
         <div>{{ bike.price }} UAH/hr</div>
     </div>
 </template>

@@ -16,12 +16,10 @@
             <input v-model="wheel_size_input" 
                 placeholder="Wheel size" 
                 type="number"
-                oninput="this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
                 :class="{validInput: (wheel_size_input.toString().length >= 2)}">
             <input v-model="price_input" 
                 placeholder="Price" 
                 type="number"
-                oninput="this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
                 :class="{validInput: (price_input.toString().length >= 2)}">
             <input v-model="id_input" 
                 placeholder="ID (slug): ХХХХХХХХХХХХХ" 
@@ -111,7 +109,6 @@ export default {
             'getAvailableBikes',
             'getBookedBikes',
             'getAveregeCost'])
-        
     }
 }
 
