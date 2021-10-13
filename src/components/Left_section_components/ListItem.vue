@@ -32,14 +32,14 @@ export default {
         },
     },
     methods:{
-        ...mapActions(['deleteBike', 'getList']),
+        ...mapActions(['deleteBike', 'getBikeList']),
         async changeStatus(target, id){
             let data = {};
             data.status = target
             await PostService
             .updatePost(id, data)
 
-            this.getList()
+            this.getBikeList()
         },
     }
 }

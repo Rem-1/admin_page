@@ -3,19 +3,19 @@ import PostService from '../PostService.js'
 
 export default new Vuex.Store({
     actions:{
-        async getList({ commit }) {
+        async getBikeList({ commit }) {
             const res = await PostService.getPosts()
             commit('updateBikes', res)
         },
         async deleteBike({ dispatch }, id) {
             await PostService.deletePost(id)
 
-            dispatch('getList')
+            dispatch('getBikeList')
         },
         async addBike({ dispatch }, data){
             await PostService.insertPost(data)
 
-            dispatch('getList')
+            dispatch('getBikeList')
         }
     },
     mutations:{
@@ -27,9 +27,6 @@ export default new Vuex.Store({
         bicycles: [],
     },
     getters:{
-        getBikes(state){
-            return state.bicycles
-        },
         getTotalBikes(state){
             return state.bicycles.length
         },

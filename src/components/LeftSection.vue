@@ -1,7 +1,7 @@
 <template>
     <section id="leftSection">
         <ul>
-            <li v-for="bike in getBikes"
+            <li v-for="bike in bicycles"
                 :class="bike.status"
                 :key="bike.id">
                 <ListItem
@@ -14,7 +14,7 @@
 
 <script>
 import ListItem from "./Left_section_components/ListItem.vue"
-import { mapActions, mapGetters} from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
     name: "LeftSection",
@@ -22,13 +22,13 @@ export default {
         ListItem,
     },
     methods: {
-        ...mapActions(['getList']),
+        ...mapActions(['getBikeList']),
     },
-    computed: {
-        ...mapGetters(['getBikes'])
+    computed:{
+        ...mapState(['bicycles'])
     },
     async mounted(){
-        await this.getList()
+        await this.getBikeList()
     }
 }
 </script>
