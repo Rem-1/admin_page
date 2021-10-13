@@ -4,29 +4,29 @@
             <input v-model="name_input"
                 placeholder="Name"
                 type="text"
-                :class="{validInput: (this.name_input.length >= 5)}">
+                :class="{validInput: (name_input.length >= 5)}">
             <input v-model="type_input" 
                 placeholder="Type" 
                 type="text" 
-                :class="{validInput: (this.type_input.length >= 5)}">
+                :class="{validInput: (type_input.length >= 5)}">
             <input v-model="color_input" 
                 placeholder="Color" 
                 type="text" 
-                :class="{validInput: (this.color_input.length >= 3)}">
+                :class="{validInput: (color_input.length >= 3)}">
             <input v-model="wheel_size_input" 
                 placeholder="Wheel size" 
                 type="number"
-                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                :class="{validInput: (this.wheel_size_input.toString().length >= 2)}">
+                oninput="this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
+                :class="{validInput: (wheel_size_input.toString().length >= 2)}">
             <input v-model="price_input" 
                 placeholder="Price" 
                 type="number"
-                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                :class="{validInput: (this.price_input.toString().length >= 2)}">
+                oninput="this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
+                :class="{validInput: (price_input.toString().length >= 2)}">
             <input v-model="id_input" 
                 placeholder="ID (slug): ХХХХХХХХХХХХХ" 
                 type="text" 
-                :class="{validInput: (this.id_input.length >= 5)}">
+                :class="{validInput: (id_input.length >= 5)}">
             <textarea v-model="description_input" 
                 maxlength="100" id="long" 
                 placeholder="Description"></textarea>
@@ -111,6 +111,7 @@ export default {
             'getAvailableBikes',
             'getBookedBikes',
             'getAveregeCost'])
+        
     }
 }
 

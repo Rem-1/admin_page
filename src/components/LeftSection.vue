@@ -1,9 +1,8 @@
 <template>
     <section id="leftSection">
         <ul>
-            <li v-for="(bike, index) in getBikes"
-                :index="index"
-                :class="classFunc(bike.status)"
+            <li v-for="bike in getBikes"
+                :class="bike.status"
                 :key="bike.id">
                 <ListItem
                     :bike="bike"
@@ -24,23 +23,12 @@ export default {
     },
     methods: {
         ...mapActions(['getList']),
-        classFunc(status){
-            if(status == "Busy"){
-                return "Busy"
-            }
-            else if(status == "Unavailable"){
-                return "Unavailable"
-            }
-            else{
-                return ""
-            }
-        }
     },
     computed: {
         ...mapGetters(['getBikes'])
     },
     async mounted(){
-        this.getList()
+        await this.getList()
     }
 }
 </script>
